@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Map from './map'
 import Sidebar from './sidebar'
-import { debounce } from 'lodash';
+//import { debounce } from 'lodash';
 import './App.css';
 
 class App extends Component {

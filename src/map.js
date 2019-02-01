@@ -14,7 +14,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
   >
     {props.markers && 
         props.markers.filter(m => m.isVisible).map(marker => 
-        <Marker key={marker.id} position={{ lat: marker.lat, lng: marker.lng }} onClick={() => props.clickMarker(marker)}>
+        <Marker key={marker.id} position={{ lat: marker.lat, lng: marker.lng }} onClick={() => props.clickMarker(marker)} animation={marker.isOpen ? 1 : 2}>
             {marker.isOpen && <InfoWindow>
                 <React.Fragment>
                     <p className="teste">{marker.name}</p>

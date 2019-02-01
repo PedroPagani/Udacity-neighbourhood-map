@@ -28,12 +28,21 @@ class Sidebar extends Component {
 
     render() {
         const venues = this.props.venues;
-       
+        const query = this.state.query;
+
+        let showing
+        if (query) {
+            const match = new RegExp(escapeRegExp(query), 'i')
+            showing = venues.filter((v) => match.test(v.venue.name))
+        } else {
+            showing = venues
+        }
+
         return (
             <div>
                 <input type="search" value={this.state.query} onChange={this.filterList}></input>
                 <ul>
-                    {venues.map((v) => (
+                    {showing.map((v) => (
                     <li key={v.venue.id} onClick={() => this.props.clickMarker(v)}>{v.venue.name}</li>
                     ))}
                 </ul>
