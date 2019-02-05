@@ -1,11 +1,87 @@
 * {
   box-sizing: border-box;
-
+  
 }
 
-.teste {
-  font-size: 24px;
+.App {
+  height: 100vh;
 }
+
+
+
+.map-sidebar-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.link-foursquare {
+  text-align: center; 
+}
+
+
+.sidebar-container {
+  max-width: 320px;
+  overflow: scroll;
+  background-color: #173f5f;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: white;
+  display: inline;
+}
+
+.sidebar-container ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  height: 100%;
+}
+
+.sidebar-container ul li {
+  margin: 5px;
+  padding: 5px;
+
+  cursor: pointer;
+  
+}
+
+
+
+.search-header {
+  display: flex;
+  width: 100%;
+  background-color: #20639b;
+}
+
+.button-container {
+  width: 15%;
+  margin: 0;
+}
+
+.button-container button {
+  position: relative;
+  top: 50%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  padding: 10px; 
+}
+
+
+.searchbar-container {
+  padding: 5px;
+  width: 100%;
+  margin: 0;
+}
+
+.searchbar-container input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 100px;
+}
+
+
+
 
 p {
   padding: 0;
