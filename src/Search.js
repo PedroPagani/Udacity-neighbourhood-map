@@ -1,22 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
-class Search extends Component {
-
-   
-
-    render() {
-        return (
-            <header className="search-header">
-                <div className="button-container">
-                    <button onClick={this.props.showList}>Lista</button>
-                </div>
-                <div className="searchbar-container">
-                    <input placeholder="Search name" type="search" onChange={(e) => this.props.filterList(e)} value={this.props.value}></input>
-                </div>
-            </header>
-        )
-    }
-}
+const Search = (props) => (
+    <header className="search-header">
+        <div className="button-container">
+            <button onClick={props.showList}>Lista</button>
+        </div>
+        <div className="searchbar-container">
+            <input placeholder="Search name" type="search" onChange={(e) => props.filterList(e)} value={props.value}></input>
+        </div>
+    </header>
+)
 
 export default Search

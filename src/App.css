@@ -67,6 +67,10 @@
   padding: 10px; 
 }
 
+.button-container button:focus {
+  outline-color: red;
+}
+
 
 .searchbar-container {
   padding: 5px;

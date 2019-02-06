@@ -16,4 +16,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * rode `npm run build` para criar uma verção para produção
 
 
+## API utilizadas nesse App
+
+* Foursquare API:  https://developer.foursquare.com/
+
+* Google Maps: https://cloud.google.com/maps-platform/
+
+
+
+
 

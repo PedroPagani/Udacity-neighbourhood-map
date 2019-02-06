@@ -9,7 +9,7 @@ class Sidebar extends Component {
     render() {
      
         return (
-            <div className="sidebar-container">
+            <div tabIndex="1" className="sidebar-container">
                 
                 <ul tabIndex="1">
                     {this.props.showing.length > 0 &&

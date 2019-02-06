@@ -5,6 +5,36 @@ import Search from './Search'
 import escapeRegExp from 'escape-string-regexp'
 import './App.css';
 
+
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    // You can also log the error to an error reporting service
+    //logErrorToMyService(error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Não foi possível carregar o Google Maps</h1>;
+    }
+
+    return this.props.children; 
+  }
+}
+
+
+
 class App extends Component {
 
   state = {
@@ -44,7 +74,9 @@ class App extends Component {
         found.isOpen = true
         this.setState({markers: Object.assign(this.state.markers, found)})
         })
-      .catch(erro => console.log(erro))
+      .catch((error) => {
+        window.alert("Não foi possível acessar as informações " + error)
+      }) 
     
   }
 
@@ -65,6 +97,8 @@ class App extends Component {
 
 
   componentDidMount() {
+    
+
     const clientId = "IK42VKWGKV5YBKBWAGURCWPZIB0DDABDSEZA1AFZHLIGUG5Z"
     const clientSecret = "BZNLT0ZTUHEPMX1PU3GJFS0HYNKXQUI1R3WT3FQQVLSQOFXI"
 
@@ -96,7 +130,7 @@ class App extends Component {
       this.setState({venues, markers, center, showing})
       })
     .catch(error => {
-        console.log("deu erro!" + error);
+        console.log("Não foi possível acessar as informações " + error);
     });
   }
 
@@ -146,6 +180,7 @@ showList = () => {
     return (
       <div className="App">
         <Search 
+          role="search"
           value={this.state.query} 
           filterList={this.filterList}
           showList={this.showList} ></Search>
@@ -155,17 +190,24 @@ showList = () => {
 
         <div className="map-sidebar-container">
           {this.state.listIsOpen &&
-            <Sidebar 
+            <Sidebar
+              tabIndex="1"
+              role="application" 
               venues={this.state.venues} 
               markers={this.state.markers} 
               clickMarker={this.listClick} 
               showing={this.state.showing}></Sidebar>
           }
+          <ErrorBoundary>
             <Map 
+              tabIndex="2"
               markers={this.state.markers} 
               venues={this.state.venues} 
               center={this.state.center} 
               clickMarker={this.handleMarkerClick}></Map>
+
+          </ErrorBoundary>
+          
           </div>
       </div>
     );
