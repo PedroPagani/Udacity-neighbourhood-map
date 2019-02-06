@@ -130,7 +130,7 @@ class App extends Component {
       this.setState({venues, markers, center, showing})
       })
     .catch(error => {
-        console.log("Não foi possível acessar as informações " + error);
+        window.alert("Não foi possível acessar as informações " + error);
     });
   }
 

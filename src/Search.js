@@ -7,7 +7,7 @@ const Search = (props) => (
             <button onClick={props.showList}>Lista</button>
         </div>
         <div className="searchbar-container">
-            <input placeholder="Search name" type="search" onChange={(e) => props.filterList(e)} value={props.value}></input>
+            <input aria-label="Insira texto para busca" placeholder="Procure local" type="search" onChange={(e) => props.filterList(e)} value={props.value}></input>
         </div>
     </header>
 )

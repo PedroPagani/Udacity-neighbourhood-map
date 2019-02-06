@@ -14,7 +14,12 @@ class Sidebar extends Component {
                 <ul tabIndex="1">
                     {this.props.showing.length > 0 &&
                      this.props.showing.map((v) => (
-                    <li tabIndex="1" key={v.venue.id} onClick={() => this.props.clickMarker(v)}>{v.venue.name}</li>
+                    <li 
+                        role="button"
+                        tabIndex="1" 
+                        key={v.venue.id} 
+                        onClick={() => this.props.clickMarker(v)} 
+                        onKeyPress={() => this.props.clickMarker(v)}>{v.venue.name}</li>
                     ))}
                 </ul>
 

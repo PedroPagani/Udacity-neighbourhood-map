@@ -40,13 +40,19 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
 class Map extends Component {
 
 
-
+    componentDidMount() {
+        window.gm_authFailure = () => {
+            window.alert('Ocorreu um erro com a autenticação do Google Maps')
+        };
+    }
     
     render() {
         return (
             
             <MyMapComponent
-                {...this.props} 
+                {...this.props}
+                role="application"
+                aria-label="google maps" 
                 isMarkerShown
                 googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDiUiaZDwQlXaI8O8yN_11KRcV6S_c-Iqw"
                 loadingElement={<div style={{ height: `100%` }} />}
